@@ -1,0 +1,1167 @@
+
+
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Ek Chhoti Si Dosti</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --ink: #20252b;
+      --muted: #697078;
+      --paper: #fffaf3;
+      --cream: #f8efe2;
+      --coral: #f07864;
+      --coral-dark: #d95e4d;
+      --yellow: #f7c85f;
+      --mint: #a9d9c7;
+      --blue: #9fc7dc;
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(56, 42, 31, 0.13);
+      --radius-lg: 32px;
+      --radius-md: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      background:
+        radial-gradient(circle at 5% 10%, rgba(240, 120, 100, 0.18), transparent 25%),
+        radial-gradient(circle at 95% 15%, rgba(169, 217, 199, 0.36), transparent 25%),
+        linear-gradient(135deg, #fffaf3 0%, #f8efe2 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.22;
+      background-image:
+        linear-gradient(rgba(32, 37, 43, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(32, 37, 43, 0.045) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .page {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 0;
+      animation: fadeDown 0.8s ease both;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      color: var(--white);
+      border-radius: 13px 13px 13px 4px;
+      background: var(--coral);
+      box-shadow: 5px 5px 0 var(--yellow);
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+    }
+
+    .top-note {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      display: grid;
+      min-height: 690px;
+      grid-template-columns: 1fr 0.92fr;
+      align-items: center;
+      gap: 74px;
+      padding: 56px 0 90px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 0.9s 0.1s ease both;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 25px;
+      color: var(--coral-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--coral);
+      box-shadow: 0 0 0 6px rgba(240, 120, 100, 0.15);
+    }
+
+    h1 {
+      max-width: 660px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(52px, 7vw, 92px);
+      font-weight: 500;
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    h1 em {
+      color: var(--coral);
+      font-weight: 600;
+    }
+
+    .hero-description {
+      max-width: 525px;
+      margin: 28px 0 30px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .hero-description strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      position: relative;
+      display: inline-flex;
+      min-height: 53px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 22px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 700;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      color: var(--white);
+      background: var(--ink);
+      box-shadow: 0 12px 25px rgba(32, 37, 43, 0.19);
+    }
+
+    .btn-primary:hover {
+      background: var(--coral);
+      box-shadow: 0 15px 29px rgba(240, 120, 100, 0.28);
+    }
+
+    .btn-secondary {
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(32, 37, 43, 0.12);
+    }
+
+    .btn-secondary:hover {
+      background: var(--white);
+    }
+
+    .response {
+      min-height: 25px;
+      margin-top: 17px;
+      color: var(--coral-dark);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .tiny-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 37px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .tiny-line::before {
+      content: "";
+      display: inline-block;
+      width: 31px;
+      height: 1px;
+      background: var(--coral);
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 520px;
+      animation: fadeUp 0.9s 0.25s ease both;
+    }
+
+    .art-circle {
+      position: absolute;
+      width: 425px;
+      height: 425px;
+      top: 36px;
+      left: 50%;
+      border: 1px solid rgba(32, 37, 43, 0.11);
+      border-radius: 50%;
+      transform: translateX(-50%) rotate(-12deg);
+    }
+
+    .art-circle::before,
+    .art-circle::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .art-circle::before {
+      width: 26px;
+      height: 26px;
+      top: 20px;
+      left: 76px;
+      background: var(--coral);
+      box-shadow: 0 0 0 8px rgba(240, 120, 100, 0.14);
+    }
+
+    .art-circle::after {
+      width: 16px;
+      height: 16px;
+      right: 50px;
+      bottom: 75px;
+      background: var(--yellow);
+      box-shadow: 0 0 0 7px rgba(247, 200, 95, 0.2);
+    }
+
+    .paper-card {
+      position: absolute;
+      top: 74px;
+      left: 50%;
+      width: min(348px, 82%);
+      min-height: 385px;
+      padding: 27px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      transform: translateX(-50%) rotate(5deg);
+    }
+
+    .paper-card::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px dashed rgba(32, 37, 43, 0.2);
+      pointer-events: none;
+    }
+
+    .paper-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      min-height: 330px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 10px 9px;
+    }
+
+    .paper-label {
+      color: var(--coral-dark);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.17em;
+    }
+
+    .paper-symbol {
+      display: grid;
+      width: 112px;
+      height: 112px;
+      margin: 29px auto 22px;
+      place-items: center;
+      color: var(--white);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 33% 28%, rgba(255, 255, 255, 0.5), transparent 19%),
+        var(--coral);
+      box-shadow: 12px 14px 0 var(--yellow);
+      font-family: "Playfair Display", serif;
+      font-size: 72px;
+      transform: rotate(-8deg);
+    }
+
+    .paper-title {
+      text-align: center;
+      font-family: "Playfair Display", serif;
+      font-size: 35px;
+      line-height: 1.05;
+    }
+
+    .paper-text {
+      max-width: 235px;
+      margin: 15px auto 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .paper-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .floating-label {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 16px;
+      border-radius: 12px;
+      color: var(--ink);
+      background: var(--white);
+      box-shadow: 0 14px 35px rgba(56, 42, 31, 0.12);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .label-one {
+      top: 104px;
+      left: 4px;
+      transform: rotate(-8deg);
+    }
+
+    .label-two {
+      right: -2px;
+      bottom: 113px;
+      background: var(--mint);
+      transform: rotate(7deg);
+    }
+
+    .scribble {
+      position: absolute;
+      color: var(--coral);
+      font-family: "Playfair Display", serif;
+      font-size: 44px;
+      font-style: italic;
+    }
+
+    .scribble-one {
+      top: 12px;
+      right: 10px;
+      transform: rotate(18deg);
+    }
+
+    .scribble-two {
+      bottom: 27px;
+      left: 38px;
+      color: var(--ink);
+      font-size: 34px;
+      transform: rotate(-13deg);
+    }
+
+    section {
+      padding: 92px 0;
+    }
+
+    .section-heading {
+      max-width: 580px;
+      margin-bottom: 39px;
+    }
+
+    .section-tag {
+      margin-bottom: 13px;
+      color: var(--coral-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(37px, 5vw, 60px);
+      font-weight: 500;
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feature-card {
+      position: relative;
+      min-height: 245px;
+      padding: 27px;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      background: var(--white);
+      box-shadow: 0 15px 50px rgba(56, 42, 31, 0.07);
+      transition: transform 0.25s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-7px) rotate(-1deg);
+    }
+
+    .feature-card:nth-child(2) {
+      background: var(--yellow);
+      transform: translateY(25px);
+    }
+
+    .feature-card:nth-child(2):hover {
+      transform: translateY(18px) rotate(1deg);
+    }
+
+    .feature-card:nth-child(3) {
+      background: var(--blue);
+    }
+
+    .feature-number {
+      color: rgba(32, 37, 43, 0.46);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .feature-card h3 {
+      margin-top: 66px;
+      font-family: "Playfair Display", serif;
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    .feature-card p {
+      max-width: 245px;
+      margin-top: 10px;
+      color: rgba(32, 37, 43, 0.7);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .feature-shape {
+      position: absolute;
+      right: -23px;
+      bottom: -27px;
+      width: 115px;
+      height: 115px;
+      border: 1px solid rgba(32, 37, 43, 0.2);
+      border-radius: 50%;
+    }
+
+    .letter-section {
+      display: grid;
+      grid-template-columns: 0.76fr 1.24fr;
+      align-items: center;
+      gap: 75px;
+    }
+
+    .letter-side {
+      position: relative;
+      min-height: 345px;
+      padding: 36px;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: var(--mint);
+    }
+
+    .letter-side::after {
+      content: "";
+      position: absolute;
+      right: -70px;
+      bottom: -90px;
+      width: 250px;
+      height: 250px;
+      border: 1px solid rgba(32, 37, 43, 0.18);
+      border-radius: 50%;
+    }
+
+    .letter-side h3 {
+      position: relative;
+      z-index: 1;
+      max-width: 260px;
+      font-family: "Playfair Display", serif;
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 1.05;
+    }
+
+    .letter-side p {
+      position: absolute;
+      right: 32px;
+      bottom: 32px;
+      left: 36px;
+      max-width: 245px;
+      color: rgba(32, 37, 43, 0.7);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .letter {
+      position: relative;
+      padding: 44px 45px 40px;
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      transform: rotate(-2deg);
+    }
+
+    .letter::before {
+      content: "";
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      width: 96px;
+      height: 27px;
+      background: rgba(247, 200, 95, 0.85);
+      transform: translateX(-50%) rotate(2deg);
+    }
+
+    .letter-label {
+      margin-bottom: 23px;
+      color: var(--coral-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .letter p {
+      color: #454a4f;
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+      line-height: 1.45;
+    }
+
+    .letter-sign {
+      margin-top: 28px;
+      color: var(--coral-dark);
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+      font-style: italic;
+    }
+
+    .question-card {
+      position: relative;
+      padding: 42px;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      color: var(--white);
+      background:
+        radial-gradient(circle at 88% 10%, rgba(169, 217, 199, 0.35), transparent 25%),
+        var(--ink);
+    }
+
+    .question-card::after {
+      content: "";
+      position: absolute;
+      right: -100px;
+      bottom: -130px;
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+    }
+
+    .question-top {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 17px;
+      color: var(--yellow);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .question-number {
+      display: grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border: 1px solid rgba(247, 200, 95, 0.6);
+      border-radius: 50%;
+      font-size: 11px;
+    }
+
+    .question-card h2 {
+      max-width: 560px;
+      color: var(--white);
+      font-size: clamp(36px, 5vw, 58px);
+    }
+
+    .choices {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      max-width: 680px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 11px;
+      margin-top: 30px;
+    }
+
+    .choice {
+      min-height: 76px;
+      padding: 15px;
+      color: var(--white);
+      text-align: left;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.06);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .choice:hover,
+    .choice.selected {
+      color: var(--ink);
+      background: var(--yellow);
+      transform: translateY(-4px);
+    }
+
+    .choice small {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--yellow);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .choice:hover small,
+    .choice.selected small {
+      color: var(--ink);
+    }
+
+    .choice strong {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .choice-result {
+      position: relative;
+      z-index: 1;
+      min-height: 22px;
+      margin-top: 20px;
+      color: var(--mint);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 28px 0 36px;
+      border-top: 1px solid rgba(32, 37, 43, 0.12);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer-highlight {
+      color: var(--coral-dark);
+      font-weight: 700;
+    }
+
+    .confetti {
+      position: fixed;
+      z-index: 20;
+      top: -14px;
+      width: 8px;
+      height: 14px;
+      pointer-events: none;
+      animation: confettiFall 1.5s ease-in forwards;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-14px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes confettiFall {
+      0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(105vh) rotate(680deg);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding-top: 40px;
+      }
+
+      .hero-art {
+        min-height: 460px;
+      }
+
+      .letter-section {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card:nth-child(2) {
+        transform: none;
+      }
+
+      .feature-card:nth-child(2):hover {
+        transform: translateY(-7px) rotate(1deg);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width: min(100% - 28px, 1160px);
+      }
+
+      .topbar {
+        padding: 20px 0;
+      }
+
+      .top-note {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 60px 0 65px;
+      }
+
+      h1 {
+        font-size: 57px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .hero-art {
+        min-height: 390px;
+      }
+
+      .art-circle {
+        width: 310px;
+        height: 310px;
+        top: 35px;
+      }
+
+      .paper-card {
+        top: 55px;
+        min-height: 310px;
+        padding: 20px;
+      }
+
+      .paper-inner {
+        min-height: 270px;
+      }
+
+      .paper-symbol {
+        width: 85px;
+        height: 85px;
+        margin: 19px auto 17px;
+        font-size: 52px;
+      }
+
+      .paper-title {
+        font-size: 28px;
+      }
+
+      .label-one {
+        left: -3px;
+      }
+
+      .label-two {
+        right: -3px;
+        bottom: 63px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .letter-side {
+        min-height: 300px;
+        padding: 29px;
+      }
+
+      .letter-side h3 {
+        font-size: 35px;
+      }
+
+      .letter {
+        padding: 37px 25px 32px;
+      }
+
+      .letter p {
+        font-size: 21px;
+      }
+
+      .question-card {
+        padding: 29px 22px;
+      }
+
+      .choices {
+        grid-template-columns: 1fr;
+      }
+
+      .choice {
+        min-height: 64px;
+      }
+
+      footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header class="topbar">
+      <a class="brand" href="#top">
+        <span class="brand-mark">D</span>
+        <span>Ek Chhoti Si Dosti</span>
+      </a>
+
+      <span class="top-note">A simple note with good intentions</span>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            From [Avadesh jha] with good vibes
+          </div>
+
+          <h1>
+            Ek <em>simple</em> si dosti ki request.
+          </h1>
+
+          <p class="hero-description">
+            Hey <strong>[Angel]</strong>, tumhari energy kaafi achhi lagti hai.
+            Isliye socha ek honest sa hello bola jaye.
+            Koi pressure nahi, koi awkward expectation nahi.
+            Bas achhi conversations, hasi-mazaak aur ek genuine friendship.
+          </p>
+
+          <div class="button-row">
+            <button class="btn btn-primary" id="yesButton">
+              Haan, dosti karte hain
+            </button>
+
+            <button class="btn btn-secondary" id="laterButton">
+              Abhi sochungi
+            </button>
+          </div>
+
+          <p class="response" id="response" aria-live="polite"></p>
+
+          <div class="tiny-line">
+            Respect first. Good conversations next.
+          </div>
+        </div>
+
+        <div class="hero-art" aria-label="Friendship note illustration">
+          <div class="art-circle"></div>
+
+          <div class="floating-label label-one">
+            good chats
+          </div>
+
+          <div class="floating-label label-two">
+            zero awkwardness
+          </div>
+
+          <div class="scribble scribble-one">hello!</div>
+          <div class="scribble scribble-two">why not?</div>
+
+          <div class="paper-card">
+            <div class="paper-inner">
+              <div class="paper-label">FRIENDSHIP NOTE / 01</div>
+
+              <div>
+                <div class="paper-symbol">D</div>
+                <h2 class="paper-title">Dosti?</h2>
+                <p class="paper-text">
+                  Ek chhoti si request, ek honest sa answer,
+                  aur shayad ek achhi si beginning.
+                </p>
+              </div>
+
+              <div class="paper-bottom">
+                <span>good vibes only</span>
+                <span>made with care</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <div class="section-tag">The friendship manifesto</div>
+          <h2>Dosti ka formula simple hai.</h2>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-number">01 / NO PRESSURE</span>
+            <h3>Comfort first.</h3>
+            <p>
+              Har conversation natural hogi. Jo comfortable lage,
+              wahi share karna. No force, no drama.
+            </p>
+            <span class="feature-shape"></span>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-number">02 / GOOD ENERGY</span>
+            <h3>Laugh more.</h3>
+            <p>
+              Random jokes, funny stories aur woh conversations
+              jinke baad mood automatically better ho jaye.
+            </p>
+            <span class="feature-shape"></span>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-number">03 / REAL TALKS</span>
+            <h3>Be yourself.</h3>
+            <p>
+              Perfect banne ki zaroorat nahi. Real personality hi
+              sabse zyada interesting hoti hai.
+            </p>
+            <span class="feature-shape"></span>
+          </article>
+        </div>
+      </section>
+
+      <section class="letter-section">
+        <div class="letter-side">
+          <h3>
+            Ek achhi dosti kabhi-kabhi ek hello se shuru hoti hai.
+          </h3>
+
+          <p>
+            Shayad ye website thodi unexpected hai,
+            but intention bilkul simple hai.
+          </p>
+        </div>
+
+        <div class="letter">
+          <div class="letter-label">A small honest note</div>
+
+          <p>
+            “Main tumhe impress karne ke liye nahi,
+            balki genuinely jaanne ke liye baat karna chahta hoon.
+            Agar tum comfortable ho, to friends?”
+          </p>
+
+          <div class="letter-sign">
+            — [Angel]
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="question-card">
+          <div class="question-top">
+            <span class="question-number">01</span>
+            First friendship plan
+          </div>
+
+          <h2>
+            Agar dosti hoti hai, to pehla plan kya hona chahiye?
+          </h2>
+
+          <div class="choices" id="choices">
+            <button class="choice" data-answer="Chai aur long conversations. Best choice.">
+              <small>Option A</small>
+              <strong>Coffee</strong>
+            </button>
+
+            <button class="choice" data-answer="Ice cream aur random bakwaas. Sounds fun.">
+              <small>Option B</small>
+              <strong>random bakwaas</strong>
+            </button>
+
+            <button class="choice" data-answer="Pehle normal si chat. No rush at all.">
+              <small>Option C</small>
+              <strong>Pehle ek normal si chat</strong>
+            </button>
+          </div>
+
+          <p class="choice-result" id="choiceResult" aria-live="polite"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Made for one genuinely nice person.</span>
+      <span class="footer-highlight">Friendship over everything.</span>
+    </footer>
+  </div>
+
+  <script>
+    const yesButton = document.getElementById("yesButton");
+    const laterButton = document.getElementById("laterButton");
+    const response = document.getElementById("response");
+    const choiceResult = document.getElementById("choiceResult");
+    const choices = document.querySelectorAll(".choice");
+
+    const colors = ["#f07864", "#f7c85f", "#a9d9c7", "#9fc7dc", "#20252b"];
+
+    function createConfetti() {
+      for (let i = 0; i < 28; i += 1) {
+        const piece = document.createElement("span");
+
+        piece.className = "confetti";
+        piece.style.left = `${Math.random() * 100}vw`;
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.animationDelay = `${Math.random() * 0.25}s`;
+        piece.style.transform = `rotate(${Math.random() * 180}deg)`;
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+          piece.remove();
+        }, 1800);
+      }
+    }
+
+    yesButton.addEventListener("click", () => {
+      response.textContent =
+        "Yay! Ab officially ek achhi friendship ki beginning ho gayi.";
+      createConfetti();
+
+      yesButton.textContent = "Friendship unlocked";
+      yesButton.style.background = "#f07864";
+    });
+
+    laterButton.addEventListener("click", () => {
+      response.textContent =
+        "Bilkul, araam se sochna. Comfortable feel ho tabhi answer dena.";
+    });
+
+    choices.forEach((choice) => {
+      choice.addEventListener("click", () => {
+        choices.forEach((item) => item.classList.remove("selected"));
+        choice.classList.add("selected");
+        choiceResult.textContent = choice.dataset.answer;
+      });
+    });
+  </script>
+</body>
+</html>
+
+
