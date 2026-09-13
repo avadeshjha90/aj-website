@@ -1,20 +1,14 @@
-
-
-
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Ek Chhoti Si Dosti</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
-    rel="stylesheet"
-  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -48,24 +42,10 @@
       color: var(--ink);
       font-family: "DM Sans", sans-serif;
       background:
-        radial-gradient(circle at 5% 10%, rgba(240, 120, 100, 0.18), transparent 25%),
-        radial-gradient(circle at 95% 15%, rgba(169, 217, 199, 0.36), transparent 25%),
+        radial-gradient(circle at 5% 10%, rgba(240,120,100,.18), transparent 25%),
+        radial-gradient(circle at 95% 15%, rgba(169,217,199,.36), transparent 25%),
         linear-gradient(135deg, #fffaf3 0%, #f8efe2 100%);
       overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      opacity: 0.22;
-      background-image:
-        linear-gradient(rgba(32, 37, 43, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(32, 37, 43, 0.045) 1px, transparent 1px);
-      background-size: 36px 36px;
-      mask-image: linear-gradient(to bottom, black, transparent 90%);
     }
 
     button {
@@ -76,7 +56,7 @@
 
     .page {
       width: min(1160px, calc(100% - 40px));
-      margin: 0 auto;
+      margin: auto;
     }
 
     .topbar {
@@ -84,7 +64,6 @@
       align-items: center;
       justify-content: space-between;
       padding: 28px 0;
-      animation: fadeDown 0.8s ease both;
     }
 
     .brand {
@@ -95,7 +74,6 @@
       text-decoration: none;
       font-size: 14px;
       font-weight: 700;
-      letter-spacing: 0.02em;
     }
 
     .brand-mark {
@@ -114,23 +92,17 @@
     .top-note {
       color: var(--muted);
       font-size: 12px;
-      letter-spacing: 0.11em;
+      letter-spacing: .11em;
       text-transform: uppercase;
     }
 
     .hero {
       display: grid;
       min-height: 690px;
-      grid-template-columns: 1fr 0.92fr;
+      grid-template-columns: 1fr .92fr;
       align-items: center;
       gap: 74px;
       padding: 56px 0 90px;
-    }
-
-    .hero-copy {
-      position: relative;
-      z-index: 2;
-      animation: fadeUp 0.9s 0.1s ease both;
     }
 
     .eyebrow {
@@ -141,7 +113,7 @@
       color: var(--coral-dark);
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.13em;
+      letter-spacing: .13em;
       text-transform: uppercase;
     }
 
@@ -150,7 +122,6 @@
       height: 9px;
       border-radius: 50%;
       background: var(--coral);
-      box-shadow: 0 0 0 6px rgba(240, 120, 100, 0.15);
     }
 
     h1 {
@@ -158,8 +129,8 @@
       font-family: "Playfair Display", serif;
       font-size: clamp(52px, 7vw, 92px);
       font-weight: 500;
-      line-height: 0.98;
-      letter-spacing: -0.055em;
+      line-height: .98;
+      letter-spacing: -.055em;
     }
 
     h1 em {
@@ -175,11 +146,6 @@
       line-height: 1.75;
     }
 
-    .hero-description strong {
-      color: var(--ink);
-      font-weight: 700;
-    }
-
     .button-row {
       display: flex;
       flex-wrap: wrap;
@@ -187,19 +153,12 @@
     }
 
     .btn {
-      position: relative;
-      display: inline-flex;
       min-height: 53px;
-      align-items: center;
-      justify-content: center;
       padding: 0 22px;
       border-radius: 100px;
       font-size: 14px;
       font-weight: 700;
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
+      transition: .25s;
     }
 
     .btn:hover {
@@ -207,24 +166,19 @@
     }
 
     .btn-primary {
-      color: var(--white);
+      color: white;
       background: var(--ink);
-      box-shadow: 0 12px 25px rgba(32, 37, 43, 0.19);
+      box-shadow: 0 12px 25px rgba(32,37,43,.19);
     }
 
     .btn-primary:hover {
       background: var(--coral);
-      box-shadow: 0 15px 29px rgba(240, 120, 100, 0.28);
     }
 
     .btn-secondary {
       color: var(--ink);
-      background: rgba(255, 255, 255, 0.68);
-      border: 1px solid rgba(32, 37, 43, 0.12);
-    }
-
-    .btn-secondary:hover {
-      background: var(--white);
+      background: rgba(255,255,255,.68);
+      border: 1px solid rgba(32,37,43,.12);
     }
 
     .response {
@@ -236,26 +190,14 @@
     }
 
     .tiny-line {
-      display: flex;
-      align-items: center;
-      gap: 10px;
       margin-top: 37px;
       color: var(--muted);
       font-size: 12px;
     }
 
-    .tiny-line::before {
-      content: "";
-      display: inline-block;
-      width: 31px;
-      height: 1px;
-      background: var(--coral);
-    }
-
     .hero-art {
       position: relative;
       min-height: 520px;
-      animation: fadeUp 0.9s 0.25s ease both;
     }
 
     .art-circle {
@@ -264,34 +206,9 @@
       height: 425px;
       top: 36px;
       left: 50%;
-      border: 1px solid rgba(32, 37, 43, 0.11);
+      border: 1px solid rgba(32,37,43,.11);
       border-radius: 50%;
       transform: translateX(-50%) rotate(-12deg);
-    }
-
-    .art-circle::before,
-    .art-circle::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-    }
-
-    .art-circle::before {
-      width: 26px;
-      height: 26px;
-      top: 20px;
-      left: 76px;
-      background: var(--coral);
-      box-shadow: 0 0 0 8px rgba(240, 120, 100, 0.14);
-    }
-
-    .art-circle::after {
-      width: 16px;
-      height: 16px;
-      right: 50px;
-      bottom: 75px;
-      background: var(--yellow);
-      box-shadow: 0 0 0 7px rgba(247, 200, 95, 0.2);
     }
 
     .paper-card {
@@ -306,17 +223,7 @@
       transform: translateX(-50%) rotate(5deg);
     }
 
-    .paper-card::before {
-      content: "";
-      position: absolute;
-      inset: 12px;
-      border: 1px dashed rgba(32, 37, 43, 0.2);
-      pointer-events: none;
-    }
-
     .paper-inner {
-      position: relative;
-      z-index: 1;
       display: flex;
       min-height: 330px;
       flex-direction: column;
@@ -328,7 +235,7 @@
       color: var(--coral-dark);
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.17em;
+      letter-spacing: .17em;
     }
 
     .paper-symbol {
@@ -337,22 +244,18 @@
       height: 112px;
       margin: 29px auto 22px;
       place-items: center;
-      color: var(--white);
+      color: white;
       border-radius: 50%;
-      background:
-        radial-gradient(circle at 33% 28%, rgba(255, 255, 255, 0.5), transparent 19%),
-        var(--coral);
+      background: var(--coral);
       box-shadow: 12px 14px 0 var(--yellow);
       font-family: "Playfair Display", serif;
       font-size: 72px;
-      transform: rotate(-8deg);
     }
 
     .paper-title {
       text-align: center;
       font-family: "Playfair Display", serif;
       font-size: 35px;
-      line-height: 1.05;
     }
 
     .paper-text {
@@ -366,24 +269,18 @@
 
     .paper-bottom {
       display: flex;
-      align-items: center;
       justify-content: space-between;
       color: var(--muted);
       font-size: 10px;
-      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
     .floating-label {
       position: absolute;
-      display: flex;
-      align-items: center;
-      min-height: 44px;
-      padding: 0 16px;
+      padding: 14px 16px;
       border-radius: 12px;
-      color: var(--ink);
-      background: var(--white);
-      box-shadow: 0 14px 35px rgba(56, 42, 31, 0.12);
+      background: white;
+      box-shadow: 0 14px 35px rgba(56,42,31,.12);
       font-size: 12px;
       font-weight: 700;
     }
@@ -437,37 +334,30 @@
       color: var(--coral-dark);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: .18em;
       text-transform: uppercase;
     }
 
     h2 {
       font-family: "Playfair Display", serif;
-      font-size: clamp(37px, 5vw, 60px);
+      font-size: clamp(37px,5vw,60px);
       font-weight: 500;
       line-height: 1.04;
-      letter-spacing: -0.04em;
     }
 
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3,1fr);
       gap: 18px;
     }
 
     .feature-card {
-      position: relative;
       min-height: 245px;
       padding: 27px;
       overflow: hidden;
       border-radius: var(--radius-md);
-      background: var(--white);
-      box-shadow: 0 15px 50px rgba(56, 42, 31, 0.07);
-      transition: transform 0.25s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-7px) rotate(-1deg);
+      background: white;
+      box-shadow: 0 15px 50px rgba(56,42,31,.07);
     }
 
     .feature-card:nth-child(2) {
@@ -475,19 +365,14 @@
       transform: translateY(25px);
     }
 
-    .feature-card:nth-child(2):hover {
-      transform: translateY(18px) rotate(1deg);
-    }
-
     .feature-card:nth-child(3) {
       background: var(--blue);
     }
 
     .feature-number {
-      color: rgba(32, 37, 43, 0.46);
+      color: rgba(32,37,43,.46);
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.12em;
     }
 
     .feature-card h3 {
@@ -500,30 +385,19 @@
     .feature-card p {
       max-width: 245px;
       margin-top: 10px;
-      color: rgba(32, 37, 43, 0.7);
+      color: rgba(32,37,43,.7);
       font-size: 13px;
       line-height: 1.6;
     }
 
-    .feature-shape {
-      position: absolute;
-      right: -23px;
-      bottom: -27px;
-      width: 115px;
-      height: 115px;
-      border: 1px solid rgba(32, 37, 43, 0.2);
-      border-radius: 50%;
-    }
-
     .letter-section {
       display: grid;
-      grid-template-columns: 0.76fr 1.24fr;
+      grid-template-columns: .76fr 1.24fr;
       align-items: center;
       gap: 75px;
     }
 
     .letter-side {
-      position: relative;
       min-height: 345px;
       padding: 36px;
       overflow: hidden;
@@ -531,40 +405,22 @@
       background: var(--mint);
     }
 
-    .letter-side::after {
-      content: "";
-      position: absolute;
-      right: -70px;
-      bottom: -90px;
-      width: 250px;
-      height: 250px;
-      border: 1px solid rgba(32, 37, 43, 0.18);
-      border-radius: 50%;
-    }
-
     .letter-side h3 {
-      position: relative;
-      z-index: 1;
       max-width: 260px;
       font-family: "Playfair Display", serif;
       font-size: 40px;
       font-weight: 500;
-      line-height: 1.05;
     }
 
     .letter-side p {
-      position: absolute;
-      right: 32px;
-      bottom: 32px;
-      left: 36px;
+      margin-top: 35px;
       max-width: 245px;
-      color: rgba(32, 37, 43, 0.7);
+      color: rgba(32,37,43,.7);
       font-size: 13px;
       line-height: 1.55;
     }
 
     .letter {
-      position: relative;
       padding: 44px 45px 40px;
       border-radius: 8px;
       background: var(--paper);
@@ -572,23 +428,12 @@
       transform: rotate(-2deg);
     }
 
-    .letter::before {
-      content: "";
-      position: absolute;
-      top: -14px;
-      left: 50%;
-      width: 96px;
-      height: 27px;
-      background: rgba(247, 200, 95, 0.85);
-      transform: translateX(-50%) rotate(2deg);
-    }
-
     .letter-label {
       margin-bottom: 23px;
       color: var(--coral-dark);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.16em;
+      letter-spacing: .16em;
       text-transform: uppercase;
     }
 
@@ -612,21 +457,8 @@
       padding: 42px;
       overflow: hidden;
       border-radius: var(--radius-lg);
-      color: var(--white);
-      background:
-        radial-gradient(circle at 88% 10%, rgba(169, 217, 199, 0.35), transparent 25%),
-        var(--ink);
-    }
-
-    .question-card::after {
-      content: "";
-      position: absolute;
-      right: -100px;
-      bottom: -130px;
-      width: 300px;
-      height: 300px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
+      color: white;
+      background: var(--ink);
     }
 
     .question-top {
@@ -637,7 +469,7 @@
       color: var(--yellow);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: .18em;
       text-transform: uppercase;
     }
 
@@ -646,23 +478,19 @@
       width: 30px;
       height: 30px;
       place-items: center;
-      border: 1px solid rgba(247, 200, 95, 0.6);
+      border: 1px solid rgba(247,200,95,.6);
       border-radius: 50%;
-      font-size: 11px;
     }
 
     .question-card h2 {
       max-width: 560px;
-      color: var(--white);
-      font-size: clamp(36px, 5vw, 58px);
+      color: white;
     }
 
     .choices {
-      position: relative;
-      z-index: 1;
       display: grid;
       max-width: 680px;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3,1fr);
       gap: 11px;
       margin-top: 30px;
     }
@@ -670,12 +498,12 @@
     .choice {
       min-height: 76px;
       padding: 15px;
-      color: var(--white);
+      color: white;
       text-align: left;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255,255,255,.2);
       border-radius: 14px;
-      background: rgba(255, 255, 255, 0.06);
-      transition: transform 0.2s ease, background 0.2s ease;
+      background: rgba(255,255,255,.06);
+      transition: .2s;
     }
 
     .choice:hover,
@@ -691,23 +519,18 @@
       color: var(--yellow);
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
     }
 
-    .choice:hover small,
-    .choice.selected small {
+    .choice.selected small,
+    .choice:hover small {
       color: var(--ink);
     }
 
     .choice strong {
       font-size: 13px;
-      font-weight: 600;
     }
 
     .choice-result {
-      position: relative;
-      z-index: 1;
       min-height: 22px;
       margin-top: 20px;
       color: var(--mint);
@@ -717,11 +540,10 @@
 
     footer {
       display: flex;
-      align-items: center;
       justify-content: space-between;
       gap: 20px;
       padding: 28px 0 36px;
-      border-top: 1px solid rgba(32, 37, 43, 0.12);
+      border-top: 1px solid rgba(32,37,43,.12);
       color: var(--muted);
       font-size: 12px;
     }
@@ -737,60 +559,29 @@
       top: -14px;
       width: 8px;
       height: 14px;
-      pointer-events: none;
       animation: confettiFall 1.5s ease-in forwards;
     }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(22px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeDown {
-      from {
-        opacity: 0;
-        transform: translateY(-14px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     @keyframes confettiFall {
-      0% {
+      from {
         opacity: 1;
-        transform: translateY(0) rotate(0);
+        transform: translateY(0);
       }
 
-      100% {
+      to {
         opacity: 0;
         transform: translateY(105vh) rotate(680deg);
       }
     }
 
     @media (max-width: 850px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 25px;
-        padding-top: 40px;
-      }
-
-      .hero-art {
-        min-height: 460px;
-      }
-
+      .hero,
       .letter-section {
         grid-template-columns: 1fr;
-        gap: 35px;
+      }
+
+      .hero {
+        gap: 25px;
       }
 
       .feature-grid {
@@ -800,19 +591,11 @@
       .feature-card:nth-child(2) {
         transform: none;
       }
-
-      .feature-card:nth-child(2):hover {
-        transform: translateY(-7px) rotate(1deg);
-      }
     }
 
     @media (max-width: 560px) {
       .page {
-        width: min(100% - 28px, 1160px);
-      }
-
-      .topbar {
-        padding: 20px 0;
+        width: calc(100% - 28px);
       }
 
       .top-note {
@@ -820,8 +603,7 @@
       }
 
       .hero {
-        min-height: auto;
-        padding: 60px 0 65px;
+        padding-top: 60px;
       }
 
       h1 {
@@ -839,7 +621,6 @@
       .art-circle {
         width: 310px;
         height: 310px;
-        top: 35px;
       }
 
       .paper-card {
@@ -848,61 +629,18 @@
         padding: 20px;
       }
 
-      .paper-inner {
-        min-height: 270px;
-      }
-
       .paper-symbol {
         width: 85px;
         height: 85px;
-        margin: 19px auto 17px;
         font-size: 52px;
-      }
-
-      .paper-title {
-        font-size: 28px;
-      }
-
-      .label-one {
-        left: -3px;
-      }
-
-      .label-two {
-        right: -3px;
-        bottom: 63px;
-      }
-
-      section {
-        padding: 65px 0;
-      }
-
-      .letter-side {
-        min-height: 300px;
-        padding: 29px;
-      }
-
-      .letter-side h3 {
-        font-size: 35px;
-      }
-
-      .letter {
-        padding: 37px 25px 32px;
-      }
-
-      .letter p {
-        font-size: 21px;
-      }
-
-      .question-card {
-        padding: 29px 22px;
       }
 
       .choices {
         grid-template-columns: 1fr;
       }
 
-      .choice {
-        min-height: 64px;
+      .question-card {
+        padding: 29px 22px;
       }
 
       footer {
@@ -910,340 +648,468 @@
         flex-direction: column;
       }
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
   </style>
 </head>
 
 <body>
-  <div class="page">
-    <header class="topbar">
-      <a class="brand" href="#top">
-        <span class="brand-mark">D</span>
-        <span>Ek Chhoti Si Dosti</span>
-      </a>
 
-      <span class="top-note">A simple note with good intentions</span>
-    </header>
+<div class="page">
 
-    <main>
-      <section class="hero" id="top">
-        <div class="hero-copy">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            From [Avadesh jha] with good vibes
-          </div>
+  <header class="topbar">
+    <a class="brand" href="#top">
+      <span class="brand-mark">D</span>
+      <span>Ek Chhoti Si Dosti</span>
+    </a>
 
-          <h1>
-            Ek <em>simple</em> si dosti ki request.
-          </h1>
+    <span class="top-note">A simple note with good intentions</span>
+  </header>
 
-          <p class="hero-description">
-            Hey <strong>[Angel]</strong>, tumhari energy kaafi achhi lagti hai.
-            Isliye socha ek honest sa hello bola jaye.
-            Koi pressure nahi, koi awkward expectation nahi.
-            Bas achhi conversations, hasi-mazaak aur ek genuine friendship.
-          </p>
+  <main>
 
-          <div class="button-row">
-            <button class="btn btn-primary" id="yesButton">
-              Haan, dosti karte hain
-            </button>
+    <section class="hero" id="top">
 
-            <button class="btn btn-secondary" id="laterButton">
-              Abhi sochungi
-            </button>
-          </div>
+      <div class="hero-copy">
 
-          <p class="response" id="response" aria-live="polite"></p>
-
-          <div class="tiny-line">
-            Respect first. Good conversations next.
-          </div>
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          From [Avadesh Jha] with good vibes
         </div>
 
-        <div class="hero-art" aria-label="Friendship note illustration">
-          <div class="art-circle"></div>
+        <h1>
+          Ek <em>simple</em> si dosti ki request.
+        </h1>
 
-          <div class="floating-label label-one">
-            good chats
-          </div>
+        <p class="hero-description">
+          Hey <strong>[Angel]</strong>, tumhari energy kaafi achhi lagti hai.
+          Isliye socha ek honest sa hello bola jaye.
+          Koi pressure nahi, koi awkward expectation nahi.
+          Bas achhi conversations, hasi-mazaak aur ek genuine friendship.
+        </p>
 
-          <div class="floating-label label-two">
-            zero awkwardness
-          </div>
+        <div class="button-row">
 
-          <div class="scribble scribble-one">hello!</div>
-          <div class="scribble scribble-two">why not?</div>
+          <button class="btn btn-primary" id="yesButton">
+            Haan, dosti karte hain
+          </button>
 
-          <div class="paper-card">
-            <div class="paper-inner">
-              <div class="paper-label">FRIENDSHIP NOTE / 01</div>
+          <button class="btn btn-secondary" id="laterButton">
+            Abhi sochungi
+          </button>
 
-              <div>
-                <div class="paper-symbol">D</div>
-                <h2 class="paper-title">Dosti?</h2>
-                <p class="paper-text">
-                  Ek chhoti si request, ek honest sa answer,
-                  aur shayad ek achhi si beginning.
-                </p>
-              </div>
+        </div>
 
-              <div class="paper-bottom">
-                <span>good vibes only</span>
-                <span>made with care</span>
-              </div>
+        <p class="response" id="response" aria-live="polite"></p>
+
+        <div class="tiny-line">
+          Respect first. Good conversations next.
+        </div>
+
+      </div>
+
+      <div class="hero-art">
+
+        <div class="art-circle"></div>
+
+        <div class="floating-label label-one">
+          good chats
+        </div>
+
+        <div class="floating-label label-two">
+          zero awkwardness
+        </div>
+
+        <div class="scribble scribble-one">
+          hello!
+        </div>
+
+        <div class="scribble scribble-two">
+          why not?
+        </div>
+
+        <div class="paper-card">
+
+          <div class="paper-inner">
+
+            <div class="paper-label">
+              FRIENDSHIP NOTE / 01
             </div>
+
+            <div>
+
+              <div class="paper-symbol">
+                D
+              </div>
+
+              <h2 class="paper-title">
+                Dosti?
+              </h2>
+
+              <p class="paper-text">
+                Ek chhoti si request, ek honest sa answer,
+                aur shayad ek achhi si beginning.
+              </p>
+
+            </div>
+
+            <div class="paper-bottom">
+              <span>good vibes only</span>
+              <span>made with care</span>
+            </div>
+
           </div>
-        </div>
-      </section>
 
-      <section>
-        <div class="section-heading">
-          <div class="section-tag">The friendship manifesto</div>
-          <h2>Dosti ka formula simple hai.</h2>
         </div>
 
-        <div class="feature-grid">
-          <article class="feature-card">
-            <span class="feature-number">01 / NO PRESSURE</span>
-            <h3>Comfort first.</h3>
-            <p>
-              Har conversation natural hogi. Jo comfortable lage,
-              wahi share karna. No force, no drama.
-            </p>
-            <span class="feature-shape"></span>
-          </article>
+      </div>
 
-          <article class="feature-card">
-            <span class="feature-number">02 / GOOD ENERGY</span>
-            <h3>Laugh more.</h3>
-            <p>
-              Random jokes, funny stories aur woh conversations
-              jinke baad mood automatically better ho jaye.
-            </p>
-            <span class="feature-shape"></span>
-          </article>
+    </section>
 
-          <article class="feature-card">
-            <span class="feature-number">03 / REAL TALKS</span>
-            <h3>Be yourself.</h3>
-            <p>
-              Perfect banne ki zaroorat nahi. Real personality hi
-              sabse zyada interesting hoti hai.
-            </p>
-            <span class="feature-shape"></span>
-          </article>
+
+    <section>
+
+      <div class="section-heading">
+
+        <div class="section-tag">
+          The friendship manifesto
         </div>
-      </section>
 
-      <section class="letter-section">
-        <div class="letter-side">
+        <h2>
+          Dosti ka formula simple hai.
+        </h2>
+
+      </div>
+
+      <div class="feature-grid">
+
+        <article class="feature-card">
+
+          <span class="feature-number">
+            01 / NO PRESSURE
+          </span>
+
           <h3>
-            Ek achhi dosti kabhi-kabhi ek hello se shuru hoti hai.
+            Comfort first.
           </h3>
 
           <p>
-            Shayad ye website thodi unexpected hai,
-            but intention bilkul simple hai.
+            Har conversation natural hogi.
+            Jo comfortable lage, wahi share karna.
+            No force, no drama.
           </p>
-        </div>
 
-        <div class="letter">
-          <div class="letter-label">A small honest note</div>
+        </article>
+
+
+        <article class="feature-card">
+
+          <span class="feature-number">
+            02 / GOOD ENERGY
+          </span>
+
+          <h3>
+            Laugh more.
+          </h3>
 
           <p>
-            “Main tumhe impress karne ke liye nahi,
-            balki genuinely jaanne ke liye baat karna chahta hoon.
-            Agar tum comfortable ho, to friends?”
+            Random jokes, funny stories aur woh conversations
+            jinke baad mood automatically better ho jaye.
           </p>
 
-          <div class="letter-sign">
-            — [Angel]
-          </div>
+        </article>
+
+
+        <article class="feature-card">
+
+          <span class="feature-number">
+            03 / REAL TALKS
+          </span>
+
+          <h3>
+            Be yourself.
+          </h3>
+
+          <p>
+            Perfect banne ki zaroorat nahi.
+            Real personality hi sabse zyada interesting hoti hai.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <section class="letter-section">
+
+      <div class="letter-side">
+
+        <h3>
+          Ek achhi dosti kabhi-kabhi ek hello se shuru hoti hai.
+        </h3>
+
+        <p>
+          Shayad ye website thodi unexpected hai,
+          but intention bilkul simple hai.
+        </p>
+
+      </div>
+
+
+      <div class="letter">
+
+        <div class="letter-label">
+          A small honest note
         </div>
-      </section>
 
-      <section>
-        <div class="question-card">
-          <div class="question-top">
-            <span class="question-number">01</span>
-            First friendship plan
-          </div>
+        <p>
+          “Main tumhe impress karne ke liye nahi,
+          balki genuinely jaanne ke liye baat karna chahta hoon.
+          Agar tum comfortable ho, to friends?”
+        </p>
 
-          <h2>
-            Agar dosti hoti hai, to pehla plan kya hona chahiye?
-          </h2>
-
-          <div class="choices" id="choices">
-            <button class="choice" data-answer="coffee is the best choice.">
-              <small>Option A</small>
-              <strong>Coffee</strong>
-            </button>
-
-            <button class="choice" data-answer="random bakwaas. Sounds fun.">
-              <small>Option B</small>
-              <strong>random bakwaas</strong>
-            </button>
-
-            <button class="choice" data-answer="Pehle normal si chat. No rush at all.">
-              <small>Option C</small>
-              <strong>Pehle ek normal si chat</strong>
-            </button>
-          </div>
-
-          <p class="choice-result" id="choiceResult" aria-live="polite"></p>
+        <div class="letter-sign">
+          — [Avadesh]
         </div>
-      </section>
-    </main>
 
-    <footer>
-      <span>Made for one genuinely nice person.</span>
-      <span class="footer-highlight">Friendship over everything.</span>
-    </footer>
-  </div>
+      </div>
 
-  <script>
-    const yesButton = document.getElementById("yesButton");
-    const laterButton = document.getElementById("laterButton");
-    const response = document.getElementById("response");
-    const choiceResult = document.getElementById("choiceResult");
-    const choices = document.querySelectorAll(".choice");
+    </section>
 
-    const colors = ["#f07864", "#f7c85f", "#a9d9c7", "#9fc7dc", "#20252b"];
 
-    function createConfetti() {
-      for (let i = 0; i < 28; i += 1) {
-        const piece = document.createElement("span");
+    <section>
 
-        piece.className = "confetti";
-        piece.style.left = `${Math.random() * 100}vw`;
-        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-        piece.style.animationDelay = `${Math.random() * 0.25}s`;
-        piece.style.transform = `rotate(${Math.random() * 180}deg)`;
+      <div class="question-card">
 
-        document.body.appendChild(piece);
+        <div class="question-top">
 
-        setTimeout(() => {
-          piece.remove();
-        }, 1800);
-      }
+          <span class="question-number">
+            01
+          </span>
+
+          First friendship plan
+
+        </div>
+
+        <h2>
+          Agar dosti hoti hai, to pehla plan kya hona chahiye?
+        </h2>
+
+
+        <div class="choices">
+
+          <button class="choice" data-answer="Coffee is the best choice.">
+
+            <small>Option A</small>
+
+            <strong>
+              Coffee
+            </strong>
+
+          </button>
+
+
+          <button class="choice" data-answer="Random bakwaas. Sounds fun.">
+
+            <small>Option B</small>
+
+            <strong>
+              Random bakwaas
+            </strong>
+
+          </button>
+
+
+          <button class="choice" data-answer="Pehle normal si chat. No rush at all.">
+
+            <small>Option C</small>
+
+            <strong>
+              Pehle ek normal si chat
+            </strong>
+
+          </button>
+
+        </div>
+
+
+        <p class="choice-result" id="choiceResult" aria-live="polite"></p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <span>
+      Made for one genuinely nice person.
+    </span>
+
+    <span class="footer-highlight">
+      Friendship over everything.
+    </span>
+
+  </footer>
+
+</div>
+
+
+<script>
+
+  // Google Apps Script URL
+  const SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbyu9PTT44yTmEbvIftrwayK40nCAdiJtu6lzFW6Q8CzgzB4DmbixkzkEUKGQUavmD9V8g/exec";
+
+
+  // Elements
+  const yesButton = document.getElementById("yesButton");
+  const laterButton = document.getElementById("laterButton");
+  const response = document.getElementById("response");
+  const choiceResult = document.getElementById("choiceResult");
+  const choices = document.querySelectorAll(".choice");
+
+
+  // Google Sheet me response save karna
+  function saveResponse(answer) {
+
+    fetch(SCRIPT_URL, {
+
+      method: "POST",
+
+      mode: "no-cors",
+
+      headers: {
+        "Content-Type":
+          "application/x-www-form-urlencoded;charset=UTF-8"
+      },
+
+      body: new URLSearchParams({
+        response: answer
+      }).toString()
+
+    }).catch(function(error) {
+
+      console.error(
+        "Response save nahi hua:",
+        error
+      );
+
+    });
+
+  }
+
+
+  // Confetti
+  function createConfetti() {
+
+    const colors = [
+      "#f07864",
+      "#f7c85f",
+      "#a9d9c7",
+      "#9fc7dc",
+      "#20252b"
+    ];
+
+    for (let i = 0; i < 28; i++) {
+
+      const piece =
+        document.createElement("span");
+
+      piece.className = "confetti";
+
+      piece.style.left =
+        Math.random() * 100 + "vw";
+
+      piece.style.background =
+        colors[
+          Math.floor(
+            Math.random() * colors.length
+          )
+        ];
+
+      piece.style.animationDelay =
+        Math.random() * 0.25 + "s";
+
+      document.body.appendChild(piece);
+
+      setTimeout(function() {
+        piece.remove();
+      }, 1800);
+
     }
 
-    yesButton.addEventListener("click", () => {
-      response.textContent =
-        "Yay! Ab officially ek achhi friendship ki beginning ho gayi.";
-      createConfetti();
-
-      yesButton.textContent = "Friendship unlocked";
-      yesButton.style.background = "#f07864";
-    });
-
-    laterButton.addEventListener("click", () => {
-      response.textContent =
-        "Bilkul, araam se sochna. Comfortable feel ho tabhi answer dena.";
-    });
-
-    choices.forEach((choice) => {
-      choice.addEventListener("click", () => {
-        choices.forEach((item) => item.classList.remove("selected"));
-        choice.classList.add("selected");
-        choiceResult.textContent = choice.dataset.answer;
-      });
-    });
-  //const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyu9PTT44yTmEbvIftrwayK40nCAdiJtu6lzFW6Q8CzgzB4DmbixkzkEUKGQUavmD9V8g/exec";
-
-const yesButton = document.getElementById("yesButton");
-const laterButton = document.getElementById("laterButton");
-const response = document.getElementById("response");
-const choiceResult = document.getElementById("choiceResult");
-const choices = document.querySelectorAll(".choice");
-
-const colors = ["#f07864", "#f7c85f", "#a9d9c7", "#9fc7dc", "#20252b"];
-
-// Google Sheet me response save karne ke liye
-function saveResponse(answer) {
-  fetch(SCRIPT_URL, {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
-    },
-    body: new URLSearchParams({
-      response: answer
-    }).toString()
-  }).catch((error) => {
-    console.error("Response save nahi hua:", error);
-  });
-}
-
-function createConfetti() {
-  for (let i = 0; i < 28; i += 1) {
-    const piece = document.createElement("span");
-
-    piece.className = "confetti";
-    piece.style.left = `${Math.random() * 100}vw`;
-    piece.style.background =
-      colors[Math.floor(Math.random() * colors.length)];
-    piece.style.animationDelay = `${Math.random() * 0.25}s`;
-    piece.style.transform = `rotate(${Math.random() * 180}deg)`;
-
-    document.body.appendChild(piece);
-
-    setTimeout(() => {
-      piece.remove();
-    }, 1800);
   }
-}
 
-// Haan button
-yesButton.addEventListener("click", () => {
-  saveResponse("Haan, dosti karte hain");
 
-  response.textContent =
-    "Yay! Ab officially ek achhi friendship ki beginning ho gayi.";
+  // YES button
+  yesButton.addEventListener("click", function() {
 
-  createConfetti();
+    saveResponse(
+      "Haan, dosti karte hain"
+    );
 
-  yesButton.textContent = "Friendship unlocked";
-  yesButton.style.background = "#f07864";
-});
+    response.textContent =
+      "Yay! Ab officially ek achhi friendship ki beginning ho gayi.";
 
-// Abhi sochungi button
-laterButton.addEventListener("click", () => {
-  saveResponse("Abhi sochungi");
+    createConfetti();
 
-  response.textContent =
-    "Bilkul, araam se sochna. Comfortable feel ho tabhi answer dena.";
-});
+    yesButton.textContent =
+      "Friendship unlocked";
 
-// A / B / C options
-choices.forEach((choice) => {
-  choice.addEventListener("click", () => {
-    const selectedAnswer = choice.dataset.answer;
+    yesButton.style.background =
+      "#f07864";
 
-    // Google Sheet me A/B/C ka answer save hoga
-    saveResponse(selectedAnswer);
+  });
 
-    choices.forEach((item) => {
-      item.classList.remove("selected");
+
+  // LATER button
+  laterButton.addEventListener("click", function() {
+
+    saveResponse(
+      "Abhi sochungi"
+    );
+
+    response.textContent =
+      "Bilkul, araam se sochna. Comfortable feel ho tabhi answer dena.";
+
+  });
+
+
+  // A / B / C options
+  choices.forEach(function(choice) {
+
+    choice.addEventListener("click", function() {
+
+      const selectedAnswer =
+        choice.dataset.answer;
+
+      saveResponse(
+        selectedAnswer
+      );
+
+      choices.forEach(function(item) {
+
+        item.classList.remove(
+          "selected"
+        );
+
+      });
+
+      choice.classList.add(
+        "selected"
+      );
+
+      choiceResult.textContent =
+        selectedAnswer;
+
     });
 
-    choice.classList.add("selected");
-    choiceResult.textContent = selectedAnswer;
   });
-});
-  </script>
+
+</script>
+
 </body>
 </html>
-
-
