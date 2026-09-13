@@ -1160,6 +1160,88 @@
         choiceResult.textContent = choice.dataset.answer;
       });
     });
+  //const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyu9PTT44yTmEbvIftrwayK40nCAdiJtu6lzFW6Q8CzgzB4DmbixkzkEUKGQUavmD9V8g/exec";
+
+const yesButton = document.getElementById("yesButton");
+const laterButton = document.getElementById("laterButton");
+const response = document.getElementById("response");
+const choiceResult = document.getElementById("choiceResult");
+const choices = document.querySelectorAll(".choice");
+
+const colors = ["#f07864", "#f7c85f", "#a9d9c7", "#9fc7dc", "#20252b"];
+
+// Google Sheet me response save karne ke liye
+function saveResponse(answer) {
+  fetch(SCRIPT_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+    },
+    body: new URLSearchParams({
+      response: answer
+    }).toString()
+  }).catch((error) => {
+    console.error("Response save nahi hua:", error);
+  });
+}
+
+function createConfetti() {
+  for (let i = 0; i < 28; i += 1) {
+    const piece = document.createElement("span");
+
+    piece.className = "confetti";
+    piece.style.left = `${Math.random() * 100}vw`;
+    piece.style.background =
+      colors[Math.floor(Math.random() * colors.length)];
+    piece.style.animationDelay = `${Math.random() * 0.25}s`;
+    piece.style.transform = `rotate(${Math.random() * 180}deg)`;
+
+    document.body.appendChild(piece);
+
+    setTimeout(() => {
+      piece.remove();
+    }, 1800);
+  }
+}
+
+// Haan button
+yesButton.addEventListener("click", () => {
+  saveResponse("Haan, dosti karte hain");
+
+  response.textContent =
+    "Yay! Ab officially ek achhi friendship ki beginning ho gayi.";
+
+  createConfetti();
+
+  yesButton.textContent = "Friendship unlocked";
+  yesButton.style.background = "#f07864";
+});
+
+// Abhi sochungi button
+laterButton.addEventListener("click", () => {
+  saveResponse("Abhi sochungi");
+
+  response.textContent =
+    "Bilkul, araam se sochna. Comfortable feel ho tabhi answer dena.";
+});
+
+// A / B / C options
+choices.forEach((choice) => {
+  choice.addEventListener("click", () => {
+    const selectedAnswer = choice.dataset.answer;
+
+    // Google Sheet me A/B/C ka answer save hoga
+    saveResponse(selectedAnswer);
+
+    choices.forEach((item) => {
+      item.classList.remove("selected");
+    });
+
+    choice.classList.add("selected");
+    choiceResult.textContent = selectedAnswer;
+  });
+});
   </script>
 </body>
 </html>
